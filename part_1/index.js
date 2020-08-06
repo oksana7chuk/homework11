@@ -10,6 +10,9 @@ const colors = [
 const randomIntegerFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
+const setRandomColor = (color) => {
+  document.body.style.backgroundColor = color;
+};
 const refs = {
   startBtn: document.querySelector('button[data-action="start"'),
   stopBtn: document.querySelector('button[data-action="stop"'),
@@ -22,10 +25,7 @@ const switchColors = {
     }
     this.isActive = true;
     this.timerId = setInterval(() => {
-      setRandomColor = (color) => {
-        document.body.style.backgroundColor = color;
-      };
-      setRandomColor(colors[randomIntegerFromInterval(0, 5)]);
+      setRandomColor(colors[randomIntegerFromInterval(0, colors.length - 1)]);
     }, 1000);
   },
   stop() {
